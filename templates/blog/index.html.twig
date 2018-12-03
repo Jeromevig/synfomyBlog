@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block stylesheets %}{% endblock %}
+
+{% block body %}
+    <h1>All categories from category s table : </h1>
+    {% for category in categories %}
+        <div>
+            <h2>{{ loop.index }} / <a href="{{ path('blog_show_category', { 'category': category.name }) }}">
+                    {{ category.name }}</a></h2>
+        </div>
+    {% endfor %}
+    <p>
+        <a href="{{ path('category_index') }}">
+            Category index.
+        </a>
+    </p>
+    <p>
+        <a href="{{ path('article_index') }}">
+            Article index.
+        </a>
+    </p>
+    <p>
+        <a href="{{ path('tag_index') }}">
+            Tag index.
+        </a>
+    </p>
+    <p>
+        <a href="{{ path('home') }}">
+            Back to homepage.
+        </a>
+    </p>
+{% endblock %}
